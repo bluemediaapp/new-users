@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 
 WORKDIR opt/
 RUN pip install poetry
@@ -7,4 +7,4 @@ COPY pyproject.toml ./
 RUN poetry install
 
 COPY . ./
-CMD ["poetry", "run", "uvicorn", "main:app", "--port", "5000"]
+CMD ["poetry", "run", "uvicorn", "main:app", "--port", "5000", "--host", "0.0.0.0"]
